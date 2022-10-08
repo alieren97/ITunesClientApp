@@ -8,14 +8,21 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .blue
-        print("ali")
+        iTunesAPI.shared.fetchPodcasts { response, err in
+            if let err = err {
+                print(err)
+                return
+            }
+            guard let response = response else { return }
+            print(response)
+        }
     }
-
 
 }
 
