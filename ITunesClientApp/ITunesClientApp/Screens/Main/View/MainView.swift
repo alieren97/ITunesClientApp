@@ -9,9 +9,13 @@ import UIKit
 
 final class MainView: UIView {
     
+    private let cellDimension: CGFloat = .screenWidth / 2 - 8.0
+    
     private lazy var flowLayout: UICollectionViewFlowLayout = {
        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: 128.0, height: 128.0)
+        flowLayout.itemSize = CGSize(width: cellDimension, height: cellDimension)
+        //Hesaplama süresini kısaltıyor
+        
         return flowLayout
     }()
     
@@ -20,7 +24,7 @@ final class MainView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .red
-        collectionView.register(PodcastCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(PodcastCollectionViewCell.self, forCellWithReuseIdentifier: PodcastCollectionViewCell.identifier)
         setupCollectionViewLayout()
     }
     

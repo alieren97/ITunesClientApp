@@ -11,6 +11,9 @@ struct Podcast: Decodable {
     let artistName: String?
     let trackName: String?
     let artworkUrl600: URL?
+    let releaseDate: Date?
+    let country: String?
+    let genres: [String]?
     
   
 }

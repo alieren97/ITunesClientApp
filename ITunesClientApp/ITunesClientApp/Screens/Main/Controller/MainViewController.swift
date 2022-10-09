@@ -33,8 +33,6 @@ final class MainViewController: UIViewController {
             self.podcastResponse = response
         }
     }
-    
-
 }
 
 extension MainViewController: UICollectionViewDataSource {
@@ -43,26 +41,12 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PodcastCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PodcastCollectionViewCell.identifier, for: indexPath) as! PodcastCollectionViewCell
         let podcast = podcastResponse?.results?[indexPath.row]
         cell.title = podcast?.trackName
-        print(podcast)
-        iTunesAPI.shared.downloadImage(from: podcast?.artworkUrl600) { image, err in
-         
-            if let err = err {
-                fatalError(err.localizedDescription)
-            }
-            cell.image = image
-            DispatchQueue.main.async {
-                collectionView.reloadItems(at: [indexPath])
-            }
-            
-            
-        }
+        cell.imageView.downloadImage(from: podcast?.artworkUrl600)
         return cell
     }
-    
-    
 }
 
 extension MainViewController: UICollectionViewDelegate {
