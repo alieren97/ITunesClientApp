@@ -9,20 +9,62 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        iTunesAPI.shared.fetchPodcasts { response, err in
-            if let err = err {
-                print(err)
-                return
-            }
-            guard let response = response else { return }
-            print(response)
+    private let mainView = MainView()
+    private var podcastResponse: PodcastResponse? {
+        didSet{
+            mainView.refresh()
         }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view = mainView
+        mainView.setCollectionViewDelegate(self, andDataSource: self)
+        fetchPodcasts()
+    }
+    
+    
+    private func fetchPodcasts() {
+        iTunesAPI.shared.fetchPodcasts { response, err in
+            if let err = err {
+                fatalError(err.localizedDescription)
+            }
+            self.podcastResponse = response
+        }
+    }
+    
+
 }
 
+extension MainViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        podcastResponse?.results?.count ?? .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PodcastCollectionViewCell
+        let podcast = podcastResponse?.results?[indexPath.row]
+        cell.title = podcast?.trackName
+        print(podcast)
+        iTunesAPI.shared.downloadImage(from: podcast?.artworkUrl600) { image, err in
+         
+            if let err = err {
+                fatalError(err.localizedDescription)
+            }
+            cell.image = image
+            DispatchQueue.main.async {
+                collectionView.reloadItems(at: [indexPath])
+            }
+            
+            
+        }
+        return cell
+    }
+    
+    
+}
+
+extension MainViewController: UICollectionViewDelegate {
+    
+}

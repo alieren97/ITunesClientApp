@@ -19,10 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainViewController = MainViewController()
         let navigationController = UINavigationController(rootViewController: mainViewController)
         self.window!.rootViewController = navigationController
-        // Create a ViewController object and set it as self.window's root view controller.
-        //self.window!.rootViewController = MainViewController()
-        
-        // Make the window be visible.
         self.window!.makeKeyAndVisible()
         
         return true

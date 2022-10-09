@@ -10,11 +10,7 @@ import Foundation
 struct Podcast: Decodable {
     let artistName: String?
     let trackName: String?
-    let artworkLarge: URL?
+    let artworkUrl600: URL?
     
-    enum CodinKeys: String, CodingKey {
-        case artistName
-        case trackName
-        case artworkLarge = "artworkUrl600"
-    }
+  
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1954599228F194B60058A376 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1954599128F194B60058A376 /* MainView.swift */; };
+		1954599528F19CDA0058A376 /* PodcastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1954599428F19CDA0058A376 /* PodcastCollectionViewCell.swift */; };
 		195A8F9328F0A7660029C1C4 /* iTunesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A8F9228F0A7660029C1C4 /* iTunesAPI.swift */; };
 		19BB5F9E28F09A0700FD9B1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BB5F9D28F09A0700FD9B1D /* AppDelegate.swift */; };
 		19BB5FA028F09A0700FD9B1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BB5F9F28F09A0700FD9B1D /* SceneDelegate.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1954599128F194B60058A376 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1954599428F19CDA0058A376 /* PodcastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCollectionViewCell.swift; sourceTree = "<group>"; };
 		195A8F9228F0A7660029C1C4 /* iTunesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesAPI.swift; sourceTree = "<group>"; };
 		19BB5F9A28F09A0700FD9B1D /* ITunesClientApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITunesClientApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BB5F9D28F09A0700FD9B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1954599328F19CC50058A376 /* PodcastCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1954599428F19CDA0058A376 /* PodcastCollectionViewCell.swift */,
+			);
+			path = PodcastCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		195A8F9028F0A7540029C1C4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +228,8 @@
 		19BB5FD528F09DD100FD9B1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1954599328F19CC50058A376 /* PodcastCollectionViewCell */,
+				1954599128F194B60058A376 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,11 +374,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				195A8F9328F0A7660029C1C4 /* iTunesAPI.swift in Sources */,
+				1954599228F194B60058A376 /* MainView.swift in Sources */,
 				19BB5FA228F09A0700FD9B1D /* MainViewController.swift in Sources */,
 				19CFFCBF28F18354002BA073 /* Podcast.swift in Sources */,
 				19BB5F9E28F09A0700FD9B1D /* AppDelegate.swift in Sources */,
 				19BB5FA028F09A0700FD9B1D /* SceneDelegate.swift in Sources */,
 				19CFFCBD28F18334002BA073 /* PodcastResponse.swift in Sources */,
+				1954599528F19CDA0058A376 /* PodcastCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
